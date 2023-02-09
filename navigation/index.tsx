@@ -63,13 +63,18 @@ function BottomTabNavigator() {
             initialRouteName="Contacts"
             screenOptions={{
                 tabBarActiveTintColor: Colors[colorScheme].tint,
-            }}>
+            }}
+        >
             <BottomTab.Screen
                 name="Contacts"
                 component={ContactsScreen}
                 options={({navigation}: RootTabScreenProps<'Contacts'>) => ({
                     tabBarLabel: toText(i18next.t('contact')),
                     title: toText(i18next.t('site_name')),
+                    tabBarActiveBackgroundColor: Colors.common.tabBackground,
+                    tabBarInactiveBackgroundColor: Colors.common.tabBackground,
+                    tabBarActiveTintColor: Colors.common.white,
+                    tabBarInactiveTintColor: Colors.common.tabIcon,
                     tabBarIcon: ({color}) => <TabBarIcon name="user" color={color}/>,
                     headerRight: () => (
                         <Pressable
@@ -92,6 +97,10 @@ function BottomTabNavigator() {
                 component={ChatScreen}
                 options={{
                     tabBarLabel: toText(i18next.t('chat')),
+                    tabBarActiveBackgroundColor: Colors.common.tabBackground,
+                    tabBarInactiveBackgroundColor: Colors.common.tabBackground,
+                    tabBarActiveTintColor: Colors.common.white,
+                    tabBarInactiveTintColor: Colors.common.tabIcon,
                     title: toText(i18next.t('site_name')),
                     tabBarIcon: ({color}) => <TabBarIcon name="commenting" color={color}/>,
                 }}
