@@ -2,13 +2,18 @@ import { StyleSheet } from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
+import i18nSetup from "../translation/TranslateSetup";
+import {toText} from "../util/ViewUtil";
+import i18next from "i18next";
 
-export default function TabTwoScreen() {
+i18nSetup().then(() => {})
+
+export default function ChatScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
+      <Text style={styles.title}>{toText(i18next.t('chat'))}</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
+      <EditScreenInfo path="/screens/ChatScreen.tsx" />
     </View>
   );
 }
