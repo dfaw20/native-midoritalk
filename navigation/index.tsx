@@ -71,10 +71,17 @@ function BottomTabNavigator() {
                 options={({navigation}: RootTabScreenProps<'Contacts'>) => ({
                     tabBarLabel: toText(i18next.t('contact')),
                     title: toText(i18next.t('site_name')),
+                    headerTitleStyle: {
+                        color: Colors.common.midoriDark,
+                        fontWeight: "bold",
+                    },
                     tabBarActiveBackgroundColor: Colors.common.tabBackground,
                     tabBarInactiveBackgroundColor: Colors.common.tabBackground,
                     tabBarActiveTintColor: Colors.common.white,
                     tabBarInactiveTintColor: Colors.common.tabIcon,
+                    headerStyle: {
+                        backgroundColor: Colors.common.midori,
+                    },
                     tabBarIcon: ({color}) => <TabBarIcon name="user" color={color}/>,
                     headerRight: () => (
                         <Pressable

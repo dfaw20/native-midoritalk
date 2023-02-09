@@ -22,6 +22,9 @@ export default {
     tabBackground: '#4C5A6F',
     tabAccent: '#FB3F06',
     tabIcon: '#7A808C',
-    white: '#FFF'
+    white: '#FFF',
+    midori: '#92DA57',
+    midoriLight: '#F1F990',
+    midoriDark: '#1C453F',
   }
 };
