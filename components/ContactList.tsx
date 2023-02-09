@@ -28,17 +28,34 @@ export default function ContactList({characters}: { characters: Character[] }) {
                         flexDirection: 'row',
                         backgroundColor: 'skyblue'
                     }}>
+                        <View style={{
+                            backgroundColor: 'darkblue',
+                            justifyContent: 'center',
+                            paddingLeft: 17,
+                            paddingRight: 9,
+                        }}>
                         <Image
                             style={{
                                 width: 55,
                                 height: 55,
                             }}
                             source={require('../assets/images/icon.png')} />
+                        </View>
                         <View style={{
                             flex: 1,
+                            paddingTop: 13,
                             backgroundColor: 'lightgreen'
                         }}>
-                            <Text>{item.firstName}</Text>
+                            <Text style={{
+                                fontSize: 20,
+                                fontWeight: "bold",
+                                color: '#46474B',
+                            }}>{item.firstName}</Text>
+                            <Text style={{
+                                fontSize: 17,
+                                fontWeight: "bold",
+                                color: '#76797E',
+                            }}>{item.club}</Text>
                         </View>
                     </View>
                 </View>}
@@ -57,7 +74,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'orange',
     },
     contactItem: {
-        color: '#46474B',
         backgroundColor: '#F3F7F8',
         height: 73,
         borderStyle: 'solid',
