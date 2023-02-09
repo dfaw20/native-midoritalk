@@ -3,4 +3,5 @@ export interface Character {
     firstName: string;
     club: string;
     school: string;
+    isTeacher: boolean;
 }

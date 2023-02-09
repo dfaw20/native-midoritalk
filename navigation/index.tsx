@@ -70,7 +70,7 @@ function BottomTabNavigator() {
                 options={({navigation}: RootTabScreenProps<'Contacts'>) => ({
                     tabBarLabel: toText(i18next.t('contact')),
                     title: toText(i18next.t('site_name')),
-                    tabBarIcon: ({color}) => <TabBarIcon name="code" color={color}/>,
+                    tabBarIcon: ({color}) => <TabBarIcon name="user" color={color}/>,
                     headerRight: () => (
                         <Pressable
                             onPress={() => navigation.navigate('Modal')}
@@ -93,7 +93,7 @@ function BottomTabNavigator() {
                 options={{
                     tabBarLabel: toText(i18next.t('chat')),
                     title: toText(i18next.t('site_name')),
-                    tabBarIcon: ({color}) => <TabBarIcon name="code" color={color}/>,
+                    tabBarIcon: ({color}) => <TabBarIcon name="commenting" color={color}/>,
                 }}
             />
         </BottomTab.Navigator>
