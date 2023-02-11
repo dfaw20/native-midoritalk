@@ -18,7 +18,7 @@ export interface Room {
     talks: Talk[];
     badgeCount: number;
     members: Character[];
-    currentWriter: Character;
+    currentWriter: Character | null;
 }
 
 export type Talk = Message | PhotoMessage | BondStory | Reply;

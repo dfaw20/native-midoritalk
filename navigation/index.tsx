@@ -21,6 +21,7 @@ import i18next from "i18next";
 import {toText} from "../util/ViewUtil";
 import RoomsScreen from "../screens/RoomsScreen";
 import RoomMembersScreen from "../screens/RoomMembersScreen";
+import ChatScreen from "../screens/ChatScreen";
 
 export default function Navigation({colorScheme}: { colorScheme: ColorSchemeName }) {
     return (
@@ -45,6 +46,16 @@ function RootNavigator() {
             <Stack.Screen
                 name="RoomMembers"
                 component={RoomMembersScreen}
+                options={{
+                    title: toText(i18next.t('choice_writer')),
+                    headerStyle: {
+                        backgroundColor: Colors.common.midori,
+                    }
+                }}
+            />
+            <Stack.Screen
+                name="Chat"
+                component={ChatScreen}
                 options={{
                     title: toText(i18next.t('choice_writer')),
                     headerStyle: {
