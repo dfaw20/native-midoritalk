@@ -38,7 +38,7 @@ export default function ChatScreen({route}: RootStackScreenProps<'Chat'>) {
                 if (beforeTalk.character.type === 'Student' &&
                     talk.character.type === 'Student') {
 
-                    if (beforeTalk.character.id === talk.character.id) {
+                    if (beforeTalk.character.student_id === talk.character.student_id) {
                         return true
                     }
                 }

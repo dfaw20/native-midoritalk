@@ -1,7 +1,7 @@
 export type Character = Student | Sensei
 
 export interface Student {
-    id: number,
+    student_id: number,
     type: "Student"
     lastName: string;
     firstName: string;

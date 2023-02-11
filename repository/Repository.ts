@@ -16,6 +16,7 @@ export function loadCharacters(): Character[] {
             club: '連邦捜査部シャーレ'
         },
         {
+            student_id: 1,
             type: "Student",
             lastName: '牛牧',
             firstName: 'ジュリ',
@@ -23,6 +24,7 @@ export function loadCharacters(): Character[] {
             school: 'ゲヘナ学園',
         },
         {
+            student_id: 2,
             type: "Student",
             lastName: '愛清',
             firstName: 'フウカ',
