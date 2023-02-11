@@ -15,11 +15,13 @@ import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import ContactsScreen from '../screens/ContactsScreen';
-import ChatScreen from '../screens/ChatScreen';
 import {RootStackParamList, RootTabParamList, RootTabScreenProps} from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import i18next from "i18next";
 import {toText} from "../util/ViewUtil";
+import RoomsScreen from "../screens/RoomsScreen";
+import RoomMembersScreen from "../screens/RoomMembersScreen";
+import ChatScreen from "../screens/ChatScreen";
 
 export default function Navigation({colorScheme}: { colorScheme: ColorSchemeName }) {
     return (
@@ -41,6 +43,26 @@ function RootNavigator() {
     return (
         <Stack.Navigator>
             <Stack.Screen name="Root" component={BottomTabNavigator} options={{headerShown: false}}/>
+            <Stack.Screen
+                name="RoomMembers"
+                component={RoomMembersScreen}
+                options={{
+                    title: toText(i18next.t('choice_writer')),
+                    headerStyle: {
+                        backgroundColor: Colors.common.midori,
+                    }
+                }}
+            />
+            <Stack.Screen
+                name="Chat"
+                component={ChatScreen}
+                options={{
+                    title: toText(i18next.t('site_name')),
+                    headerStyle: {
+                        backgroundColor: Colors.common.midori,
+                    }
+                }}
+            />
             <Stack.Screen name="NotFound" component={NotFoundScreen} options={{title: 'Oops!'}}/>
             <Stack.Group screenOptions={{presentation: 'modal'}}>
                 <Stack.Screen name="Modal" component={ModalScreen}/>
@@ -60,7 +82,7 @@ function BottomTabNavigator() {
 
     return (
         <BottomTab.Navigator
-            initialRouteName="Contacts"
+            initialRouteName="Rooms"
             screenOptions={{
                 tabBarActiveTintColor: Colors[colorScheme].tint,
             }}
@@ -100,8 +122,8 @@ function BottomTabNavigator() {
                 })}
             />
             <BottomTab.Screen
-                name="Chat"
-                component={ChatScreen}
+                name="Rooms"
+                component={RoomsScreen}
                 options={{
                     tabBarLabel: toText(i18next.t('chat')),
                     tabBarActiveBackgroundColor: Colors.common.tabBackground,
@@ -110,6 +132,9 @@ function BottomTabNavigator() {
                     tabBarInactiveTintColor: Colors.common.tabIcon,
                     title: toText(i18next.t('site_name')),
                     tabBarIcon: ({color}) => <TabBarIcon name="commenting" color={color}/>,
+                    headerStyle: {
+                        backgroundColor: Colors.common.midori,
+                    }
                 }}
             />
         </BottomTab.Navigator>

@@ -21,11 +21,20 @@ export default function ContactList({characters}: { characters: Character[] }) {
     }, [])
 
     return (
-        <View style={styles.container}>
+        <View style={{
+            flex: 1,
+            alignItems: 'flex-start',
+            backgroundColor: Colors.common.contactListBackground,
+        }}>
             <FlatList
-                style={styles.contactFlatList}
                 data={characters}
-                renderItem={({item}) => <View style={{...styles.contactItem, width: windowWidth}}>
+                renderItem={({item}) => <View style={{
+                    height: 73,
+                    borderStyle: 'solid',
+                    borderColor: Colors.common.contactListBackgroundDark,
+                    borderBottomWidth: 0.1,
+                    width: windowWidth
+                }}>
                     <View style={{
                         flex: 1,
                         flexDirection: 'row',
@@ -34,7 +43,7 @@ export default function ContactList({characters}: { characters: Character[] }) {
                             justifyContent: 'center',
                             paddingLeft: 17,
                             paddingRight: 9,
-                            backgroundColor: item.isTeacher ?
+                            backgroundColor: item.type === 'Sensei' ?
                                 Colors.common.contactListBackgroundDark :
                                 Colors.common.contactListBackground,
                         }}>
@@ -48,20 +57,37 @@ export default function ContactList({characters}: { characters: Character[] }) {
                         <View style={{
                             flex: 1,
                             paddingTop: 13,
-                            backgroundColor: item.isTeacher ?
+                            backgroundColor: item.type === 'Sensei' ?
                                 Colors.common.contactListBackgroundDark :
                                 Colors.common.contactListBackground,
                         }}>
-                            <Text style={{
-                                fontSize: 20,
-                                fontWeight: "bold",
-                                color: '#46474B',
-                            }}>{item.firstName}</Text>
-                            <Text style={{
-                                fontSize: 17,
-                                fontWeight: "bold",
-                                color: '#76797E',
-                            }}>{item.club}</Text>
+
+                            {
+                                item.type === 'Sensei' ?
+                                    <>
+                                        <Text style={{
+                                            fontSize: 20,
+                                            fontWeight: "bold",
+                                            color: '#46474B',
+                                        }}>{item.firstName}</Text>
+                                        <Text style={{
+                                            fontSize: 17,
+                                            fontWeight: "bold",
+                                            color: '#76797E',
+                                        }}>{item.club}</Text>
+                                    </>
+                                    : <><Text style={{
+                                        fontSize: 20,
+                                        fontWeight: "bold",
+                                        color: '#46474B',
+                                    }}>{item.firstName}</Text>
+                                        <Text style={{
+                                            fontSize: 17,
+                                            fontWeight: "bold",
+                                            color: '#76797E',
+                                        }}>{item.club}</Text>
+                                    </>
+                            }
                         </View>
                     </View>
                 </View>}
@@ -69,18 +95,3 @@ export default function ContactList({characters}: { characters: Character[] }) {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'flex-start',
-        backgroundColor: Colors.common.contactListBackground,
-    },
-    contactFlatList: {},
-    contactItem: {
-        height: 73,
-        borderStyle: 'solid',
-        borderColor: Colors.common.contactListBackgroundDark,
-        borderBottomWidth: 0.1,
-    }
-});
