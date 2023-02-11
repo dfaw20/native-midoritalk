@@ -1,6 +1,7 @@
 export type Character = Student | Sensei
 
 export interface Student {
+    id: number,
     type: "Student"
     lastName: string;
     firstName: string;
@@ -22,6 +23,11 @@ export interface Room {
 }
 
 export type Talk = Message | PhotoMessage | BondStory | Reply;
+
+export interface TalkView {
+    talk: Talk,
+    omitCharacter: boolean,
+}
 
 export interface Message {
     type: "Message"

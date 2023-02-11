@@ -57,7 +57,7 @@ function RootNavigator() {
                 name="Chat"
                 component={ChatScreen}
                 options={{
-                    title: toText(i18next.t('choice_writer')),
+                    title: toText(i18next.t('site_name')),
                     headerStyle: {
                         backgroundColor: Colors.common.midori,
                     }

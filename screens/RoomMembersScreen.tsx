@@ -4,7 +4,7 @@ import {Image, Text, View} from '../components/Themed';
 import {RootStackScreenProps} from '../types';
 import {useEffect, useState} from "react";
 import Colors from "../constants/Colors";
-import {Message, Room} from "../types/Entity";
+import {Room} from "../types/Entity";
 
 export default function RoomMembersScreen({route, navigation}: RootStackScreenProps<'RoomMembers'>) {
     const [windowWidth, setWindowWidth] = useState(Dimensions.get('window').width)
