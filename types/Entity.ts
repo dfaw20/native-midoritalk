@@ -10,7 +10,8 @@ export interface Student {
 
 export interface Sensei {
     type: "Sensei"
-    name: string
+    firstName: string;
+    club: string;
 }
 
 export interface Room {
@@ -20,23 +21,17 @@ export interface Room {
     currentEditor: Character;
 }
 
-export type Talk = MessagesSerial | BondStory | Reply;
+export type Talk = Message | PhotoMessage | BondStory | Reply;
 
-export interface MessagesSerial {
-    type: "MessagesSerial"
-    messages: Message[];
-    speaker: Character;
+export interface Message {
+    type: "Message"
+    text: string
+    character: Character
 }
 
-export type Message = TextMessage | Photo
-
-export interface TextMessage {
-    type: "TextMessage"
-    text: string;
-}
-
-export interface Photo {
-    type: "Photo"
+export interface PhotoMessage {
+    type: "PhotoMessage"
+    character: Character
 }
 
 export interface BondStory {

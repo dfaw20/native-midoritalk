@@ -2,20 +2,18 @@ import {
     BondStory,
     Character,
     Message,
-    MessagesSerial,
-    Photo,
     Reply,
     Student,
     Room,
-    TextMessage,
-    Talk,
+    Talk, PhotoMessage,
 } from "../types/Entity";
 
 export function loadCharacters(): Character[] {
     return [
         {
             type: "Sensei",
-            name: '先生',
+            firstName: '先生',
+            club: '連邦捜査部シャーレ'
         },
         {
             type: "Student",
@@ -46,33 +44,24 @@ export function loadRooms(): Room[] {
         if (c.type === 'Sensei') return c
     })!
 
-    const textMessage1: TextMessage = {
-        type: "TextMessage",
-        text: "おはよう"
+    const textMessage1: Message = {
+        type: "Message",
+        text: "おはよう",
+        character: juri,
     }
-    const textMessage2: TextMessage = {
-        type: "TextMessage",
-        text: "こんにちは"
+    const textMessage2: Message = {
+        type: "Message",
+        text: "こんにちは",
+        character: juri,
     }
-    const photo: Photo = {
-        type: "Photo",
+    const photo: PhotoMessage = {
+        type: "PhotoMessage",
+        character: juri,
     }
-    const textMessage3: TextMessage = {
-        type: "TextMessage",
-        text: "こんばんは"
-    }
-
-    const messages: Message[] = [
-        textMessage1,
-        textMessage2,
-        photo,
-        textMessage3,
-    ]
-
-    const serial: MessagesSerial = {
-        type: "MessagesSerial",
-        messages: messages,
-        speaker: huka
+    const textMessage3: Message = {
+        type: "Message",
+        text: "こんばんは",
+        character: juri,
     }
 
     const bondStory: BondStory = {
@@ -86,7 +75,10 @@ export function loadRooms(): Room[] {
     }
 
     const talks: Talk[] = [
-        serial,
+        textMessage1,
+        textMessage2,
+        photo,
+        textMessage3,
         bondStory,
         reply
     ]

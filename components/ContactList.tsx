@@ -34,7 +34,7 @@ export default function ContactList({characters}: { characters: Character[] }) {
                             justifyContent: 'center',
                             paddingLeft: 17,
                             paddingRight: 9,
-                            backgroundColor: item.isSensei ?
+                            backgroundColor: item.type === 'Sensei' ?
                                 Colors.common.contactListBackgroundDark :
                                 Colors.common.contactListBackground,
                         }}>
@@ -48,20 +48,37 @@ export default function ContactList({characters}: { characters: Character[] }) {
                         <View style={{
                             flex: 1,
                             paddingTop: 13,
-                            backgroundColor: item.isSensei ?
+                            backgroundColor: item.type === 'Sensei' ?
                                 Colors.common.contactListBackgroundDark :
                                 Colors.common.contactListBackground,
                         }}>
-                            <Text style={{
-                                fontSize: 20,
-                                fontWeight: "bold",
-                                color: '#46474B',
-                            }}>{item.firstName}</Text>
-                            <Text style={{
-                                fontSize: 17,
-                                fontWeight: "bold",
-                                color: '#76797E',
-                            }}>{item.club}</Text>
+
+                            {
+                                item.type === 'Sensei' ?
+                                    <>
+                                        <Text style={{
+                                            fontSize: 20,
+                                            fontWeight: "bold",
+                                            color: '#46474B',
+                                        }}>{item.name}</Text>
+                                        <Text style={{
+                                            fontSize: 17,
+                                            fontWeight: "bold",
+                                            color: '#76797E',
+                                        }}>{item.club}</Text>
+                                    </>
+                                    : <><Text style={{
+                                        fontSize: 20,
+                                        fontWeight: "bold",
+                                        color: '#46474B',
+                                    }}>{item.firstName}</Text>
+                                        <Text style={{
+                                            fontSize: 17,
+                                            fontWeight: "bold",
+                                            color: '#76797E',
+                                        }}>{item.club}</Text>
+                                    </>
+                            }
                         </View>
                     </View>
                 </View>}
