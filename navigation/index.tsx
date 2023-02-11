@@ -20,6 +20,7 @@ import {RootStackParamList, RootTabParamList, RootTabScreenProps} from '../types
 import LinkingConfiguration from './LinkingConfiguration';
 import i18next from "i18next";
 import {toText} from "../util/ViewUtil";
+import RoomsScreen from "../screens/RoomsScreen";
 
 export default function Navigation({colorScheme}: { colorScheme: ColorSchemeName }) {
     return (
@@ -100,8 +101,8 @@ function BottomTabNavigator() {
                 })}
             />
             <BottomTab.Screen
-                name="Chat"
-                component={ChatScreen}
+                name="Rooms"
+                component={RoomsScreen}
                 options={{
                     tabBarLabel: toText(i18next.t('chat')),
                     tabBarActiveBackgroundColor: Colors.common.tabBackground,
