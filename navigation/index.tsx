@@ -45,6 +45,12 @@ function RootNavigator() {
             <Stack.Screen
                 name="RoomMembers"
                 component={RoomMembersScreen}
+                options={{
+                    title: toText(i18next.t('choice_writer')),
+                    headerStyle: {
+                        backgroundColor: Colors.common.midori,
+                    }
+                }}
             />
             <Stack.Screen name="NotFound" component={NotFoundScreen} options={{title: 'Oops!'}}/>
             <Stack.Group screenOptions={{presentation: 'modal'}}>
