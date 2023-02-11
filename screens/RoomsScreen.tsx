@@ -17,7 +17,7 @@ function getLastMessage(room: Room): Message {
 
 export default function RoomsScreen({navigation}: RootTabScreenProps<'Rooms'>) {
     const [windowWidth, setWindowWidth] = useState(Dimensions.get('window').width)
-    const [rooms, setRooms] = useState(loadRooms())
+    const rooms = loadRooms()
 
     useEffect(() => {
         setWindowWidth(Dimensions.get('window').width)
@@ -41,7 +41,9 @@ export default function RoomsScreen({navigation}: RootTabScreenProps<'Rooms'>) {
                     borderColor: Colors.common.contactListBackgroundDark,
                     borderBottomWidth: 0.1,
                     width: windowWidth,
-                }}>
+                }}
+
+                >
                     <View style={{
                         flex: 1,
                         flexDirection: 'row',

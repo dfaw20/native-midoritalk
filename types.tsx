@@ -28,6 +28,7 @@ export type RootTabParamList = {
   Contacts: undefined;
   Chat: undefined;
   Rooms: undefined;
+  RoomMembers: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<

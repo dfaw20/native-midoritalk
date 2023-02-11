@@ -17,8 +17,8 @@ export interface Sensei {
 export interface Room {
     talks: Talk[];
     badgeCount: number;
-    characters: Character[];
-    currentEditor: Character;
+    members: Character[];
+    currentWriter: Character;
 }
 
 export type Talk = Message | PhotoMessage | BondStory | Reply;

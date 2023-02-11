@@ -86,9 +86,9 @@ export function loadRooms(): Room[] {
     const roomA: Room = {
         talks: talks,
         badgeCount: 3,
-        characters: characters,
-        currentEditor: juri,
+        members: characters,
+        currentWriter: juri,
     }
 
-    return [roomA]
+    return [roomA, roomA]
 }
