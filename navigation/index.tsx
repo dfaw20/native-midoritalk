@@ -15,12 +15,12 @@ import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import ContactsScreen from '../screens/ContactsScreen';
-import ChatScreen from '../screens/ChatScreen';
 import {RootStackParamList, RootTabParamList, RootTabScreenProps} from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import i18next from "i18next";
 import {toText} from "../util/ViewUtil";
 import RoomsScreen from "../screens/RoomsScreen";
+import RoomMembersScreen from "../screens/RoomMembersScreen";
 
 export default function Navigation({colorScheme}: { colorScheme: ColorSchemeName }) {
     return (
@@ -42,6 +42,10 @@ function RootNavigator() {
     return (
         <Stack.Navigator>
             <Stack.Screen name="Root" component={BottomTabNavigator} options={{headerShown: false}}/>
+            <Stack.Screen
+                name="RoomMembers"
+                component={RoomMembersScreen}
+            />
             <Stack.Screen name="NotFound" component={NotFoundScreen} options={{title: 'Oops!'}}/>
             <Stack.Group screenOptions={{presentation: 'modal'}}>
                 <Stack.Screen name="Modal" component={ModalScreen}/>

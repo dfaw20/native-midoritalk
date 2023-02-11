@@ -1,8 +1,7 @@
-import {Dimensions, FlatList, StyleSheet} from 'react-native';
+import {Dimensions, FlatList, StyleSheet, TouchableHighlight} from 'react-native';
 
 import {Image, Text, View} from '../components/Themed';
-import {RootTabScreenProps} from '../types';
-import {loadRooms} from "../repository/Repository";
+import {RootStackScreenProps, RootTabScreenProps} from '../types';
 import {useEffect, useState} from "react";
 import Colors from "../constants/Colors";
 import {Message, Room} from "../types/Entity";
@@ -15,11 +14,11 @@ function getLastMessage(room: Room): Message {
         .at(-1) as Message
 }
 
-export default function RoomMembersScreen({route}: RootTabScreenProps<'RoomMembers'>) {
+export default function RoomMembersScreen({route}: RootStackScreenProps<'RoomMembers'>) {
     const [windowWidth, setWindowWidth] = useState(Dimensions.get('window').width)
     if (route.params === undefined) return <></>
 
-    const room: Room = route.params
+    const room: Room = route.params as Room
 
     useEffect(() => {
         setWindowWidth(Dimensions.get('window').width)
@@ -38,13 +37,14 @@ export default function RoomMembersScreen({route}: RootTabScreenProps<'RoomMembe
             {
                 room === undefined ? <></> : <FlatList
                     data={room.members}
-                    renderItem={({item}) => <View style={{
+                    renderItem={({item}) => <TouchableHighlight style={{
                         height: 73,
                         borderStyle: 'solid',
                         borderColor: Colors.common.contactListBackgroundDark,
                         borderBottomWidth: 0.1,
                         width: windowWidth,
-                    }}>
+                    }}
+                    >
                         <View style={{
                             flex: 1,
                             flexDirection: 'row',
@@ -83,7 +83,7 @@ export default function RoomMembersScreen({route}: RootTabScreenProps<'RoomMembe
                                 }
                             </View>
                         </View>
-                    </View>}
+                    </TouchableHighlight>}
                 />
             }
         </View>

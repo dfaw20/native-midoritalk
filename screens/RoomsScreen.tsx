@@ -1,4 +1,4 @@
-import {Dimensions, FlatList, StyleSheet} from 'react-native';
+import {Dimensions, FlatList, StyleSheet, TouchableHighlight} from 'react-native';
 
 import {Image, Text, View} from '../components/Themed';
 import {RootTabScreenProps} from '../types';
@@ -6,6 +6,7 @@ import {loadRooms} from "../repository/Repository";
 import {useEffect, useState} from "react";
 import Colors from "../constants/Colors";
 import {Message, Room} from "../types/Entity";
+import RoomMembersScreen from "./RoomMembersScreen";
 
 function getLastMessage(room: Room): Message {
     return room.talks
@@ -35,14 +36,17 @@ export default function RoomsScreen({navigation}: RootTabScreenProps<'Rooms'>) {
         }}>
             <FlatList
                 data={rooms}
-                renderItem={({item}) => <View style={{
+                renderItem={({item}) => <TouchableHighlight style={{
                     height: 73,
                     borderStyle: 'solid',
                     borderColor: Colors.common.contactListBackgroundDark,
                     borderBottomWidth: 0.1,
                     width: windowWidth,
                 }}
-
+                onPress={() => {
+                    navigation.navigate('RoomMembers', item)
+                }
+                }
                 >
                     <View style={{
                         flex: 1,
@@ -82,7 +86,7 @@ export default function RoomsScreen({navigation}: RootTabScreenProps<'Rooms'>) {
                             }
                         </View>
                     </View>
-                </View>}
+                </TouchableHighlight>}
             />
         </View>
     );

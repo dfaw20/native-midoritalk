@@ -6,6 +6,7 @@
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { CompositeScreenProps, NavigatorScreenParams } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import {Room} from "./types/Entity";
 
 declare global {
   namespace ReactNavigation {
@@ -15,6 +16,7 @@ declare global {
 
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
+  RoomMembers: Room | undefined;
   Modal: undefined;
   NotFound: undefined;
 };
@@ -28,7 +30,6 @@ export type RootTabParamList = {
   Contacts: undefined;
   Chat: undefined;
   Rooms: undefined;
-  RoomMembers: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<
