@@ -52,7 +52,7 @@ export default function RoomsScreen({navigation}: RootTabScreenProps<'Rooms'>) {
                                     fontSize: 20,
                                     fontWeight: "bold",
                                     color: '#46474B',
-                                }}>{getLastMessage(item).character.}</Text>
+                                }}>{getLastMessage(item).character.firstName}</Text>
                                     <Text style={{
                                         fontSize: 17,
                                         fontWeight: "bold",
