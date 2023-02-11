@@ -1,44 +1,51 @@
-export interface Character {
+export type Character = Student | Sensei
+
+export interface Student {
+    type: "Student"
     lastName: string;
     firstName: string;
     club: string;
     school: string;
-    isSensei: boolean;
+}
+
+export interface Sensei {
+    type: "Sensei"
+    name: string
 }
 
 export interface Room {
-    events: Event[];
+    talks: Talk[];
     badgeCount: number;
     characters: Character[];
-    speaker: Character;
+    currentEditor: Character;
 }
 
-export interface Event {
-    item: MessagesSerial | BondStory | Reply;
-}
+export type Talk = MessagesSerial | BondStory | Reply;
 
 export interface MessagesSerial {
+    type: "MessagesSerial"
     messages: Message[];
     speaker: Character;
 }
 
-export interface Message {
-    item: TextMessage | Photo;
-}
-
+export type Message = TextMessage | Photo
 
 export interface TextMessage {
+    type: "TextMessage"
     text: string;
 }
 
 export interface Photo {
+    type: "Photo"
 }
 
 export interface BondStory {
+    type: "BondStory"
     character: Character
 }
 
 export interface Reply {
+    type: "Reply"
     text: string;
 }
 

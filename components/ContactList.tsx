@@ -34,7 +34,7 @@ export default function ContactList({characters}: { characters: Character[] }) {
                             justifyContent: 'center',
                             paddingLeft: 17,
                             paddingRight: 9,
-                            backgroundColor: item.isTeacher ?
+                            backgroundColor: item.isSensei ?
                                 Colors.common.contactListBackgroundDark :
                                 Colors.common.contactListBackground,
                         }}>
@@ -48,7 +48,7 @@ export default function ContactList({characters}: { characters: Character[] }) {
                         <View style={{
                             flex: 1,
                             paddingTop: 13,
-                            backgroundColor: item.isTeacher ?
+                            backgroundColor: item.isSensei ?
                                 Colors.common.contactListBackgroundDark :
                                 Colors.common.contactListBackground,
                         }}>
