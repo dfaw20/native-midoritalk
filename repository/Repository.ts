@@ -49,12 +49,12 @@ export function loadRooms(): Room[] {
     const textMessage1: Message = {
         type: "Message",
         text: "おはよう",
-        character: juri,
+        character: sensei,
     }
     const textMessage2: Message = {
         type: "Message",
         text: "こんにちは",
-        character: juri,
+        character: huka,
     }
     const photo: PhotoMessage = {
         type: "PhotoMessage",
@@ -78,9 +78,20 @@ export function loadRooms(): Room[] {
 
     const talks: Talk[] = [
         textMessage1,
+        reply,
         textMessage2,
         photo,
+        photo,
+        photo,
+        photo,
+        photo,
         textMessage3,
+        textMessage3,
+        bondStory,
+        textMessage3,
+        photo,
+        textMessage3,
+        bondStory,
         bondStory,
         reply
     ]
