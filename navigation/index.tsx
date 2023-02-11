@@ -60,7 +60,7 @@ function BottomTabNavigator() {
 
     return (
         <BottomTab.Navigator
-            initialRouteName="Contacts"
+            initialRouteName="Chat"
             screenOptions={{
                 tabBarActiveTintColor: Colors[colorScheme].tint,
             }}
