@@ -61,7 +61,7 @@ function BottomTabNavigator() {
 
     return (
         <BottomTab.Navigator
-            initialRouteName="Chat"
+            initialRouteName="Rooms"
             screenOptions={{
                 tabBarActiveTintColor: Colors[colorScheme].tint,
             }}
@@ -111,6 +111,9 @@ function BottomTabNavigator() {
                     tabBarInactiveTintColor: Colors.common.tabIcon,
                     title: toText(i18next.t('site_name')),
                     tabBarIcon: ({color}) => <TabBarIcon name="commenting" color={color}/>,
+                    headerStyle: {
+                        backgroundColor: Colors.common.midori,
+                    }
                 }}
             />
         </BottomTab.Navigator>

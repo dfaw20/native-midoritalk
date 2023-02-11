@@ -21,11 +21,20 @@ export default function ContactList({characters}: { characters: Character[] }) {
     }, [])
 
     return (
-        <View style={styles.container}>
+        <View style={{
+            flex: 1,
+            alignItems: 'flex-start',
+            backgroundColor: Colors.common.contactListBackground,
+        }}>
             <FlatList
-                style={styles.contactFlatList}
                 data={characters}
-                renderItem={({item}) => <View style={{...styles.contactItem, width: windowWidth}}>
+                renderItem={({item}) => <View style={{
+                    height: 73,
+                    borderStyle: 'solid',
+                    borderColor: Colors.common.contactListBackgroundDark,
+                    borderBottomWidth: 0.1,
+                    width: windowWidth
+                }}>
                     <View style={{
                         flex: 1,
                         flexDirection: 'row',
@@ -60,7 +69,7 @@ export default function ContactList({characters}: { characters: Character[] }) {
                                             fontSize: 20,
                                             fontWeight: "bold",
                                             color: '#46474B',
-                                        }}>{item.name}</Text>
+                                        }}>{item.firstName}</Text>
                                         <Text style={{
                                             fontSize: 17,
                                             fontWeight: "bold",
@@ -86,18 +95,3 @@ export default function ContactList({characters}: { characters: Character[] }) {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'flex-start',
-        backgroundColor: Colors.common.contactListBackground,
-    },
-    contactFlatList: {},
-    contactItem: {
-        height: 73,
-        borderStyle: 'solid',
-        borderColor: Colors.common.contactListBackgroundDark,
-        borderBottomWidth: 0.1,
-    }
-});

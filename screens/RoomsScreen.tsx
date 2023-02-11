@@ -3,7 +3,7 @@ import {Dimensions, FlatList, StyleSheet} from 'react-native';
 import {Image, Text, View} from '../components/Themed';
 import {RootTabScreenProps} from '../types';
 import {loadRooms} from "../repository/Repository";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Colors from "../constants/Colors";
 import {Message, Room} from "../types/Entity";
 
@@ -19,11 +19,29 @@ export default function RoomsScreen({navigation}: RootTabScreenProps<'Rooms'>) {
     const [windowWidth, setWindowWidth] = useState(Dimensions.get('window').width)
     const [rooms, setRooms] = useState(loadRooms())
 
+    useEffect(() => {
+        setWindowWidth(Dimensions.get('window').width)
+        function handleResize() {
+            setWindowWidth(Dimensions.get('window').width)
+        }
+        window.addEventListener('resize', handleResize)
+    }, [])
+
     return (
-        <View style={styles.container}>
+        <View style={{
+            flex: 1,
+            alignItems: 'flex-start',
+            backgroundColor: Colors.common.contactListBackground,
+        }}>
             <FlatList
                 data={rooms}
-                renderItem={({item}) => <View style={{width: windowWidth}}>
+                renderItem={({item}) => <View style={{
+                    height: 73,
+                    borderStyle: 'solid',
+                    borderColor: Colors.common.contactListBackgroundDark,
+                    borderBottomWidth: 0.1,
+                    width: windowWidth,
+                }}>
                     <View style={{
                         flex: 1,
                         flexDirection: 'row',
@@ -67,11 +85,3 @@ export default function RoomsScreen({navigation}: RootTabScreenProps<'Rooms'>) {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
