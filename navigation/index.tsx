@@ -20,8 +20,8 @@ import LinkingConfiguration from './LinkingConfiguration';
 import i18next from "i18next";
 import {toText} from "../util/ViewUtil";
 import RoomsScreen from "../screens/RoomsScreen";
-import RoomMembersScreen from "../screens/RoomMembersScreen";
 import ChatScreen from "../screens/ChatScreen";
+import RoomMembersScreen from "../screens/RoomMembersScreen";
 
 export default function Navigation({colorScheme}: { colorScheme: ColorSchemeName }) {
     return (
@@ -82,7 +82,7 @@ function BottomTabNavigator() {
 
     return (
         <BottomTab.Navigator
-            initialRouteName="Rooms"
+            initialRouteName="General"
             screenOptions={{
                 tabBarActiveTintColor: Colors[colorScheme].tint,
             }}
