@@ -427,3 +427,8 @@ fabric.properties
 .idea/**/azureSettings.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/reactnative,webstorm,visualstudiocode,macos,linux
+
+assets/images/character
+master_json/characters.json
+master_json/clubs.json
+master_json/schools.json
