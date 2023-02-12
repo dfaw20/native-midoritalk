@@ -15,13 +15,15 @@ import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import ContactsScreen from '../screens/ContactsScreen';
-import {RootStackParamList, RootTabParamList, RootTabScreenProps} from '../types';
+import {RootStackParamList, RootStackScreenProps, RootTabParamList, RootTabScreenProps} from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import i18next from "i18next";
 import {toText} from "../util/ViewUtil";
 import RoomsScreen from "../screens/RoomsScreen";
 import ChatScreen from "../screens/ChatScreen";
 import RoomMembersScreen from "../screens/RoomMembersScreen";
+import {Room} from '../types/Entity';
+import HomeScreen from "../screens/HomeScreen";
 
 export default function Navigation({colorScheme}: { colorScheme: ColorSchemeName }) {
     return (
@@ -47,19 +49,30 @@ function RootNavigator() {
                 name="RoomMembers"
                 component={RoomMembersScreen}
                 options={{
-                    title: toText(i18next.t('choice_writer')),
+                    title: toText(i18next.t('choice_account')),
                     headerStyle: {
                         backgroundColor: Colors.common.midori,
-                    }
+                    },
+                    headerTitleStyle: {
+                        color: Colors.common.midoriDark,
+                        fontWeight: "bold",
+                    },
                 }}
             />
             <Stack.Screen
                 name="Chat"
                 component={ChatScreen}
-                options={{
-                    title: toText(i18next.t('site_name')),
-                    headerStyle: {
-                        backgroundColor: Colors.common.midori,
+                options={(route: RootStackScreenProps<'Chat'>) => {
+                    const room: Room = route.route.params as Room
+                    return {
+                        title: room.currentAccount === null ? "閲覧モード" : room.currentAccount?.firstName + toText(i18next.t('as_login')),
+                        headerStyle: {
+                            backgroundColor: Colors.common.midori,
+                        },
+                        headerTitleStyle: {
+                            color: Colors.common.midoriDark,
+                            fontWeight: "bold",
+                        },
                     }
                 }}
             />
@@ -82,44 +95,30 @@ function BottomTabNavigator() {
 
     return (
         <BottomTab.Navigator
-            initialRouteName="General"
+            initialRouteName="Home"
             screenOptions={{
                 tabBarActiveTintColor: Colors[colorScheme].tint,
             }}
         >
             <BottomTab.Screen
-                name="Contacts"
-                component={ContactsScreen}
-                options={({navigation}: RootTabScreenProps<'Contacts'>) => ({
-                    tabBarLabel: toText(i18next.t('contact')),
-                    title: toText(i18next.t('site_name')),
-                    headerTitleStyle: {
-                        color: Colors.common.midoriDark,
-                        fontWeight: "bold",
-                    },
+                name="Home"
+                component={HomeScreen}
+                options={{
+                    tabBarLabel: '',
                     tabBarActiveBackgroundColor: Colors.common.tabBackground,
                     tabBarInactiveBackgroundColor: Colors.common.tabBackground,
                     tabBarActiveTintColor: Colors.common.white,
                     tabBarInactiveTintColor: Colors.common.tabIcon,
+                    title: toText(i18next.t('site_name')),
+                    tabBarIcon: ({color}) => <TabBarIcon name="home" color={color}/>,
                     headerStyle: {
                         backgroundColor: Colors.common.midori,
                     },
-                    tabBarIcon: ({color}) => <TabBarIcon name="user" color={color}/>,
-                    headerRight: () => (
-                        <Pressable
-                            onPress={() => navigation.navigate('Modal')}
-                            style={({pressed}) => ({
-                                opacity: pressed ? 0.5 : 1,
-                            })}>
-                            <FontAwesome
-                                name="info-circle"
-                                size={25}
-                                color={Colors[colorScheme].text}
-                                style={{marginRight: 15}}
-                            />
-                        </Pressable>
-                    ),
-                })}
+                    headerTitleStyle: {
+                        color: Colors.common.midoriDark,
+                        fontWeight: "bold",
+                    },
+                }}
             />
             <BottomTab.Screen
                 name="Rooms"
@@ -134,7 +133,11 @@ function BottomTabNavigator() {
                     tabBarIcon: ({color}) => <TabBarIcon name="commenting" color={color}/>,
                     headerStyle: {
                         backgroundColor: Colors.common.midori,
-                    }
+                    },
+                    headerTitleStyle: {
+                        color: Colors.common.midoriDark,
+                        fontWeight: "bold",
+                    },
                 }}
             />
         </BottomTab.Navigator>

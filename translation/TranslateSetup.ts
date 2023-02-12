@@ -9,8 +9,10 @@ export default async () => i18next.init({
                 "site_name": "MidoriTalk",
                 "contact": "連絡先",
                 "chat": "チャット",
+                "general": "全般",
                 "bond_story_with_student": "の絆ストーリーへ",
-                "choice_writer": "発言者を選ぶ",
+                "choice_account": "アカウントを選ぶ",
+                "as_login": "としてログイン中",
             }
         }
     }}

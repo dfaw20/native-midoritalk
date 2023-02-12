@@ -100,7 +100,7 @@ export function loadRooms(): Room[] {
         talks: talks,
         badgeCount: 3,
         members: characters,
-        currentWriter: juri,
+        currentAccount: juri,
     }
 
     return [roomA, roomA]

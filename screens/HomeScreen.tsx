@@ -5,7 +5,7 @@ import { RootTabScreenProps } from '../types';
 import ContactList from "../components/ContactList";
 import {loadCharacters} from "../repository/Repository";
 
-export default function GeneralScreen({ navigation }: RootTabScreenProps<'General'>) {
+export default function HomeScreen({ navigation }: RootTabScreenProps<'Home'>) {
   return (
     <View>
     </View>

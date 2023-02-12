@@ -42,7 +42,7 @@ export default function RoomMembersScreen({route, navigation}: RootStackScreenPr
                         onPress={() => {
                             const roomOfChoseMember: Room = {
                                 ...room,
-                                currentWriter: item
+                                currentAccount: item
                             }
                             navigation.navigate('Chat', roomOfChoseMember)
                         }

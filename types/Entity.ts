@@ -19,7 +19,7 @@ export interface Room {
     talks: Talk[];
     badgeCount: number;
     members: Character[];
-    currentWriter: Character | null;
+    currentAccount: Character | null;
 }
 
 export type Talk = Message | PhotoMessage | BondStory | Reply;
