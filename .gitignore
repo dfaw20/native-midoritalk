@@ -429,6 +429,6 @@ fabric.properties
 # End of https://www.toptal.com/developers/gitignore/api/reactnative,webstorm,visualstudiocode,macos,linux
 
 assets/images/character
-master_json/characters.json
-master_json/clubs.json
-master_json/schools.json
+local_json/characters.json
+local_json/clubs.json
+local_json/schools.json

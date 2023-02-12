@@ -1,18 +1,28 @@
 export type Character = Student | Sensei
 
+export type Language = 'ja' | 'en' | 'ko' | 'zhHant' | 'zhHans'
+
+export interface TransText {
+    ja: string | null | undefined
+    en: string | null | undefined
+    ko: string | null | undefined
+    'zhHant': string | null | undefined
+    'zhHans': string | null | undefined
+}
+
 export interface Student {
-    student_id: number,
+    student_id: string,
     type: "Student"
-    lastName: string;
-    firstName: string;
-    club: string;
-    school: string;
+    lastName: TransText;
+    firstName: TransText;
+    club: TransText;
+    school: TransText;
 }
 
 export interface Sensei {
     type: "Sensei"
-    firstName: string;
-    club: string;
+    firstName: TransText;
+    club: TransText;
 }
 
 export interface Room {

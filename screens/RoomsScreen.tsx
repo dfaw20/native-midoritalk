@@ -2,11 +2,10 @@ import {Dimensions, FlatList, StyleSheet, TouchableHighlight} from 'react-native
 
 import {Image, Text, View} from '../components/Themed';
 import {RootTabScreenProps} from '../types';
-import {loadRooms} from "../repository/Repository";
+import {loadRooms} from "../repository/LocalRepository";
 import {useEffect, useState} from "react";
 import Colors from "../constants/Colors";
 import {Message, Room} from "../types/Entity";
-import RoomMembersScreen from "./RoomMembersScreen";
 
 function getLastMessage(room: Room): Message {
     return room.talks
