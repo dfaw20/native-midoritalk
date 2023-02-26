@@ -69,23 +69,23 @@ export default function ContactList({characters}: { characters: Character[] }) {
                                             fontSize: 20,
                                             fontWeight: "bold",
                                             color: '#46474B',
-                                        }}>{item.firstName}</Text>
+                                        }}>{item.firstName.ja}</Text>
                                         <Text style={{
                                             fontSize: 17,
                                             fontWeight: "bold",
                                             color: '#76797E',
-                                        }}>{item.club}</Text>
+                                        }}>{item.club.ja}</Text>
                                     </>
                                     : <><Text style={{
                                         fontSize: 20,
                                         fontWeight: "bold",
                                         color: '#46474B',
-                                    }}>{item.firstName}</Text>
+                                    }}>{item.firstName.ja}</Text>
                                         <Text style={{
                                             fontSize: 17,
                                             fontWeight: "bold",
                                             color: '#76797E',
-                                        }}>{item.club}</Text>
+                                        }}>{item.club.ja}</Text>
                                     </>
                             }
                         </View>

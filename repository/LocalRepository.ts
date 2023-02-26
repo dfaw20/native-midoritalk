@@ -1,65 +1,8 @@
 import {BondStory, Character, Message, PhotoMessage, Reply, Room, Student, Talk, TransText,} from "../types/Entity";
-
-import clubsJsonFile from '../local_json/clubs.json'
-import schoolsJsonFile from '../local_json/schools.json'
-import charactersJsonFile from '../local_json/characters.json'
-import {CharacterLocalJson, ClubLocalJson, SchoolLocalJson, TranslationTextLocalJson} from "../local_json/JsonTypes";
-
-const characterJson = charactersJsonFile as CharacterLocalJson[]
-const schoolJson = schoolsJsonFile as SchoolLocalJson
-const clubJson = clubsJsonFile as ClubLocalJson
-
-function toTransText(localJson: TranslationTextLocalJson): TransText {
-    return {
-        ja: localJson.ja,
-        en: localJson.en,
-        ko: localJson.ko,
-        zhHant: localJson["zh-hant"],
-        zhHans: localJson["zh-hans"],
-    }
-}
-
-function toClubName(localChara: CharacterLocalJson): TransText {
-    if (localChara.club === null ||
-        localChara.club === undefined ||
-        localChara.club.length === 0
-    ) return {
-        ja: '',
-        en: '',
-        ko: '',
-        zhHant: '',
-        zhHans: ''
-    }
-    const firstClubId = localChara.club[0]
-
-    const clubText = clubJson[firstClubId];
-    return toTransText(clubText)
-}
-
-function toSchoolName(localChara: CharacterLocalJson): TransText {
-    if (localChara.school === null || localChara.school === undefined) return {
-        ja: '',
-        en: '',
-        ko: '',
-        zhHant: '',
-        zhHans: ''
-    }
-    return toTransText(schoolJson[localChara.school])
-}
+import {CharacterLocalJson, TranslationTextLocalJson} from "../local_json/JsonTypes";
 
 export function loadCharacters(): Character[] {
-    return characterJson.map((localChara) => {
-        const student: Student = {
-            student_id: localChara.id,
-            type: "Student",
-            lastName: toTransText(localChara.name.last_name),
-            firstName: toTransText(localChara.name.first_name),
-            club: toClubName(localChara),
-            school: toSchoolName(localChara)
-        }
-
-        return student
-    })
+    return []
 }
 
 export function loadRooms(): Room[] {

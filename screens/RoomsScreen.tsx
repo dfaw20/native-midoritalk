@@ -6,6 +6,7 @@ import {loadRooms} from "../repository/LocalRepository";
 import {useEffect, useState} from "react";
 import Colors from "../constants/Colors";
 import {Message, Room} from "../types/Entity";
+import i18next from "i18next";
 
 function getLastMessage(room: Room): Message {
     return room.talks
@@ -75,7 +76,10 @@ export default function RoomsScreen({navigation}: RootTabScreenProps<'Rooms'>) {
                                     fontSize: 20,
                                     fontWeight: "bold",
                                     color: '#46474B',
-                                }}>{getLastMessage(item).character.firstName}</Text>
+                                }}>{getLastMessage(item).character.firstName.ja}</Text>
+                                    <Text>
+                                        {i18next.language}
+                                    </Text>
                                     <Text style={{
                                         fontSize: 17,
                                         fontWeight: "bold",
